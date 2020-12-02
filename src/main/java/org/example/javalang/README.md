@@ -1,0 +1,23 @@
+# JAVA.LANG
+- 자바 패키지중 유일하게 import를 안해도 사용할수 있음.
+- JAVA.LANG에 정의된 "에러"
+    - OOME, StackOverflowError
+- 자바는 간단한 계산을 할 때 대부분 기본자료형 사용.
+    - 기본 자료형은 자바의 힙이 아닌 스택 영역에 저장 -> 보다 빠른 처리를 보장함.
+    - 기본자료형의 숫자를 객체로 처리할 필요가 있을때 Wrapper 클래스 사용.(Character, Boolean 제외)
+    - Byte, Short, Integer, Long, Float, Double, Character, Boolean
+    - 래퍼 클래스는 Number 추상클래스를 확장함.
+    - 위 클래스 들은 참조자료형이지만 기본 자료형처럼 사용 가능 : 컴파일러가 자동 형변환 해줌.
+    - 위 클래스들은 공통 메소드 제공 : parse타입, valueOf (Character 제외)
+    - 위 클래스들은 MIN_VALUE, MAX_VALUE 상수를 가지고 잇음.(Boolean 제외)
+    - 돈 계산과 같은 중요한 계산은 BigInteger(정수), BigDecimal(소수)
+- System 클래스
+    - 이 클래스는 생성자가 없음.
+    - 이 클래스는 3개의 static 변수(err, in, out)가 있음.
+    - System 클래스의 역할
+        - 시스템 속성(프로퍼티) 관리 : 조회 및 변경 가능
+        - 시스템 환경 값 조회 : 조회만 가능
+        - GC 수행**
+        - JVM 종료**
+        - 현재 시간 조회
+        - 기타 관리용 메소드
