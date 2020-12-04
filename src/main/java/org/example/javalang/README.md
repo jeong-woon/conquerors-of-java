@@ -1,9 +1,10 @@
 # JAVA.LANG
 - 자바 패키지중 유일하게 import를 안해도 사용할수 있음.
 - JAVA.LANG에 정의된 "에러"
-    - OOME, StackOverflowError
+    - OOME : 설정문제로 메모리가 정말 부족할수도 있고 객체가 해제가 안될수도
+    - StackOverflowError : 메소드 호출 스택이 너무 깊음, 재귀 호출.
 - 자바는 간단한 계산을 할 때 대부분 기본자료형 사용.
-    - 기본 자료형은 자바의 힙이 아닌 스택 영역에 저장 -> 보다 빠른 처리를 보장함.
+    - 기본자료형은 자바의 힙이 아닌 스택 영역에 저장 -> 보다 빠른 처리를 보장함.
     - 기본자료형의 숫자를 객체로 처리할 필요가 있을때 Wrapper 클래스 사용.(Character, Boolean 제외)
     - Byte, Short, Integer, Long, Float, Double, Character, Boolean
     - 래퍼 클래스는 Number 추상클래스를 확장함.

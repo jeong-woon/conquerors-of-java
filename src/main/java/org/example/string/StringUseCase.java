@@ -10,21 +10,42 @@ public class StringUseCase {
         String c = new String("aaa");
         String d = new String("aaa");
         System.out.println(c == d);
+
+        //안전하지 않은 객체
+        StringBuilder sb1 = new StringBuilder();
+        //안전한객체
+        StringBuffer sb2 = new StringBuffer();
+
+        Thread thread1 = new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                try {
+                    sb1.append(i);
+                    sb2.append(i);
+//                    System.out.println("t1 : " + i);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+            System.out.println("Thread1-builder: " + sb1.toString());
+            System.out.println("Thread1-buffer: " + sb2.toString());
+        });
+        Thread thread2 = new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                try {
+                    sb1.append(i);
+                    sb2.append(i);
+//                    System.out.println("t2 : " +i);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
+            System.out.println("Thread2-builder: " + sb1.toString());
+            System.out.println("Thread2-buffer: " + sb2.toString());
+        });
+
+        thread1.start();
+        thread2.start();
     }
 }
-
-//    final StringBuffer buffer = new StringBuffer();
-//
-//    void append(String s) {
-//        buffer.append(s);
-//    }
-//
-//    public void run() {
-//        for (;;) {
-//            Thread.sleep(100);
-//
-//            String message = buffer.toString();
-//            sendToServer(message);
-//            buffer.delete(0, message.length());
-//        }
-//    }
